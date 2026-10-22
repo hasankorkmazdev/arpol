@@ -24,14 +24,18 @@ node tools/fetch-gsm.mjs
 
 Ürünleri ve görselleri yeniden indirip `demo/assets/js/data.js` dosyasını yazar. Ana sayfadaki slaytlar `ap1009` gibi ürün kodlarıyla seçili olduğundan katalog değişirse `demo/assets/js/pages/home.js` içindeki kodları kontrol et.
 
-## Cloudflare Pages ile yayınlama
+## Cloudflare ile yayınlama
 
-1. Cloudflare panelinde **Workers & Pages → Create → Pages → Connect to Git** ile bu repoyu seç.
+Repo kökündeki `wrangler.jsonc`, `demo/` klasörünü statik site olarak yayınlar; derleme adımı yoktur.
+
+1. Cloudflare panelinde **Workers & Pages → Create → Import a repository** ile bu repoyu seç.
 2. Ayarlar:
-   - **Framework preset:** None
+   - **Project name:** `arpol` (`wrangler.jsonc` içindeki `name` ile aynı olmalı)
    - **Build command:** boş bırak
-   - **Build output directory:** `demo`
-3. Deploy sonrası **Custom domains** sekmesinden `arpol.<alan-adın>` alt alan adını ekle. Alan adı aynı Cloudflare hesabındaysa DNS kaydı otomatik oluşur.
+   - **Deploy command:** `npx wrangler deploy` (varsayılan)
+3. Deploy sonrası **Settings → Domains & Routes → Add → Custom domain** ile `arpol.<alan-adın>` alt alan adını ekle. Alan adı aynı Cloudflare hesabındaysa DNS kaydı otomatik oluşur.
+
+`main` dalına her push otomatik olarak yeniden yayınlanır.
 
 ## Klasör yapısı
 

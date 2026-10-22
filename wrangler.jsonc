@@ -1,0 +1,10 @@
+// Cloudflare Workers statik site ayarı: demo/ klasörü olduğu gibi yayınlanır, derleme adımı yok.
+// "name", Cloudflare panelindeki Worker adıyla aynı olmalı.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arpol",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./demo"
+  }
+}
